@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3001;
 const mongoose = require('mongoose');
 const Todo = require('./src/models/todo');
+require("dotenv").config()
+const port=process.env.PORT
+const DB_CONNECTION_LINK=process.env.DB_CONNECTION_LINK
 
-mongoose.connect("mongodb+srv://dbUser:dbUser1234@clustere50.6x3jq.mongodb.net/?retryWrites=true&w=majority&appName=ClusterE50") 
+mongoose.connect(DB_CONNECTION_LINK) 
 .then(()=>{
   console.log("connected to database")
 })
