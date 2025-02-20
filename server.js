@@ -3,7 +3,7 @@ require("dotenv").config()
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const Todo = require('./src/models/todo');
+const Todo = require('./src/models/Todo');
 const port=process.env.PORT
 const DB_CONNECTION_LINK=process.env.DB_CONNECTION_LINK
 
