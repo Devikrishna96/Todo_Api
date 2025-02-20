@@ -6,7 +6,11 @@ const mongoose = require('mongoose');
 const Todo = require('./src/models/Todo');
 const port=process.env.PORT
 const DB_CONNECTION_LINK=process.env.DB_CONNECTION_LINK
+const cors = require ("cors")
 
+const corsOptions={
+  origin: "http://localhost:5173",
+}
 mongoose.connect(DB_CONNECTION_LINK) 
 .then(()=>{
   console.log("connected to database")
@@ -14,6 +18,7 @@ mongoose.connect(DB_CONNECTION_LINK)
 .catch((err)=>{
   console.log("DB Connection error")
 })
+app.use(cors(corsOptions))
 
 app.use(express.json());
 
